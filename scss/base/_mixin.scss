@@ -1,0 +1,9 @@
+@mixin media($media) {
+    @if $media == xs {
+        @media (max-width: $breakpoint-xs) { @content; }
+            }
+    @else if $media == sm {
+        @media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) { @content; }
+            }
+    
+}
