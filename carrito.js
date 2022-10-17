@@ -37,6 +37,39 @@ function validar_producto(seleccion_producto){
 
 */
 
+/* Clase de Carrito */
+
+class Carrito {
+    constructor(usuario,producto,precio){;
+
+    this.usuario = usuario;
+    this.producto = producto;
+    this.precio = precio;
+    this.monto_compra = null
+    }
+    
+getMontoCompra(){
+    return this.monto_compra
+}
+
+/**
+ * METODO PARA ASIGNAR MONTO DE COMPRA 
+ * @param {*} carrito 
+ */
+
+setMontoCompra(carrito){
+    this.monto_compra = carrito;
+}
+
+getDatos(){
+    return this.email + " - " + this.monto_compra;
+}
+
+}
+
+
+
+
 
 //Esto estará en una base de datos en el futuro
 const db_user = "generico";
@@ -47,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
     solicitarDatos();
 
 });
+
+
+
 //validar datos del usuario
 function solicitarDatos(){
 
@@ -78,9 +114,12 @@ function validarDatos(usuario,pass){
 
 function iniciarCarrito(){
 
+    let usuario = "test"
+    let arreglo_carrito = new Array();
     let list = "";
     let finalizar_carrito = false;
     let monto = 0;
+    
 
     while (!finalizar_carrito){
         let cod = prompt("Ingrese codigo del producto");
@@ -88,12 +127,14 @@ function iniciarCarrito(){
         let compra = obtenerProducto(cod);
         const producto = compra[0],
                 precio = compra[1];
+        let objeto_carrito = new Carrito (usuario,producto,precio);
     
         if (producto){
             console.log("Producto agregado con éxito:" +producto)
             list += "\n"+cod+" "+producto+"        precio:$"+precio;
             monto = monto + precio
             console.log("Monto acumulado es igual "+monto)
+            arreglo_carrito.push(objeto_carrito)
         }else{
             if (cod === null){
                 finalizar_carrito = true;
@@ -108,6 +149,8 @@ function iniciarCarrito(){
 
         if (resp){
             alert ("Gracias por la compra");
+            console.log(arreglo_carrito);
+           
             
         }else{
             

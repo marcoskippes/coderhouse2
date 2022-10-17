@@ -29,8 +29,8 @@ function solicitarCliente(){
     if(input_email.trim =""){
         alert("no ingreso su email")
     }
-    if(input_password.trim =""){
-        alert("no ingreso su contraseña")
+    if(input_password.trim = "" || input_password.length < 6){
+        alert("Su contraseña no es segura o no ingreso su contraseña")
     }
     
     crear_cliente(input_nombre,input_apellido,input_email,input_password)
