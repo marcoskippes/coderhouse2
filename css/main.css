@@ -41,13 +41,33 @@ body main div.productos .prd1, body main div.productos .prd2, body main div.prod
       transform: scale(1.05);
       background-color: #25256f; }
 
-body header div {
-  background-color: rgba(0, 38, 255, 0.463);
-  font-size: 2rem;
-  padding: 1rem; }
-
-body header nav div a .logo {
-  max-width: 8rem; }
+body header .barraMenu {
+  display: flex;
+  background-color: white;
+  font-size: 1rem;
+  justify-content: center;
+  justify-items: center; }
+  body header .barraMenu div {
+    width: 30%;
+    text-align: center;
+    justify-items: center;
+    justify-content: center; }
+  body header .barraMenu nav {
+    width: 70%;
+    align-content: flex-end;
+    padding: 2rem; }
+    body header .barraMenu nav ul {
+      list-style: none;
+      text-align: center; }
+      body header .barraMenu nav ul li {
+        background-color: rgba(0, 38, 255, 0.463);
+        display: inline-block;
+        padding: 0.1rem;
+        margin: 0.1rem; }
+      body header .barraMenu nav ul li:hover {
+        transform: scale(1.05);
+        border-radius: 0.5rem;
+        background-color: #25256f; }
 
 html {
   font-family: 'Montserrat', Arial, sans-serif;

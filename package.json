@@ -244,5 +244,13 @@
     "uri-js": "^4.4.1",
     "y18n": "^5.0.8"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcoskippes/coderhouse2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcoskippes/coderhouse2/issues"
+  },
+  "homepage": "https://github.com/marcoskippes/coderhouse2#readme",
   "description": ""
 }

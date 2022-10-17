@@ -9,24 +9,49 @@
 
 body{  
     header{
+    .barraMenu{
+        display: flex;
+        background-color:white;
+        font-size: 1rem;
+        justify-content: center;
+        justify-items: center;
         div{
-            background-color: $color_boton;
-            font-size: 2rem;
-            padding: 1rem;
+            width: 30%;
+            text-align: center;
+            justify-items: center;
+            justify-content: center;
         };
         nav{
-            div{
-                a{
-                    .logo{
-                        max-width: 8rem;
-                    }
+            width: 70%;
+            align-content: flex-end;
+            padding:2rem;
+            ul{
+                list-style: none; 
+                text-align: center;
+                li{
+                    background-color: $color-boton;
+                    display: inline-block;
+                    padding: 0.1rem;
+                    margin: 0.1rem;
+                        
+                };
+                li:hover{
+                    transform: scale(1.05);
+                    border-radius: 0.5rem;
+                    background-color: $color-hover;
+                             
                 }
             }
+
         }
+
 
     } 
 
-} 
+}
+}
+
+ 
 
 
 
@@ -57,6 +82,7 @@ button {
     }
     
 }
+
 
 #container {
   border: solid 3px #474544;

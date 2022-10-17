@@ -1,124 +1,58 @@
-/*EJEMPLO DE 
+// INICIO
+document.addEventListener('DOMContentLoaded', function() {
+    solicitarCliente();
+});
 
-class Cliente {
-    constructor(nro_cliente,nombre,apellido){
-        this.nro_cliente = nro_cliente;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.cuenta_pesos = null;
-        this.cuenta_dolares = null;
+let arreglo_clientes = new Array();
 
-    }
+function solicitarCliente(){
+    
+    let input_nombre = prompt("Ingrese su nombre");
+    console.log(input_nombre)
+   
+    let input_apellido = prompt("Ingrese su apellido");
+    console.log(input_apellido)
+  
+    let input_email = prompt("Ingrese su email");
+    console.log(input_email)
+  
+    let input_password = prompt("Ingrese una contraseña");
+    console.log(input_password)
 
-    setCuentaPesos(nueva_cuenta){
-        this.cuenta_pesos = nueva_cuenta;
+
+    if(input_nombre.trim =""){
+        alert("no ingreso su nombre")
     }
-    setCuentaDolares(nueva_cuenta){
-        this.cuenta_dolares = nueva_cuenta;
+    if(input_apellido.trim =""){
+        alert("no ingreso su apellido")
     }
-    getCuentaPesos(){
-        return this.cuenta_pesos;
+    if(input_email.trim =""){
+        alert("no ingreso su email")
     }
-    getCuentaDolares(){
-        return this.cuenta_dolares;
+    if(input_password.trim =""){
+        alert("no ingreso su contraseña")
     }
-    getDatos(){
-        return this.nro_cliente+ "  " + this.nombre + " "+ this.apellido 
-    }
+    
+    crear_cliente(input_nombre,input_apellido,input_email,input_password)
 }
 
-class Cuenta {
+function crear_cliente(input_nombre,input_apellido,input_email,input_password){
 
-    constructor(_cbu,tipo){
-        this._cbu = this._cbu
-        this.tipo = tipo;
-        this.saldo = 0;
-    }
-    getSaldo(){
-        return this.saldo
-    }
-    getTipo(){
-        return this.tipo
-    }
-    debitar(monto){
-        this.saldo = this.saldo - monto;
-    };
-    acreditar(monto){
-        this.saldo = this.saldo + monto;
-    };
-    getDescrip(){
-        return this._cbu + "-"+ this.tipo + this.saldo
-    }
+    let nombre = input_nombre
+    let apellido = input_apellido
+    let email = input_email
+    let password = input_password
 
-//validar si tenemos saldo
-    tieneSaldo(monto){
-        return this.saldo >= monto;
-    }
-}
+    let cliente = new Cliente (nombre,apellido,email,password);
 
-//creo los clientes del banco
+    arreglo_clientes.push(cliente)
 
-//cliente1
-let cliente1  = new Cliente(1,"Jorge","Ramos");
-cliente1.setCuentaPesos(new Cuenta(111,"$"));
-cliente1.setCuentaDolares(new Cuenta(222,"USD"));
+    console.log(arreglo_clientes)
 
-let cuenta_pesos = cliente1.getCuentaPesos();
-cuenta_pesos.acreditar(5000);
-
-//cliente2
-
-let cliente2  = new Cliente(2,"Maria","Jimenz");
-cliente2.setCuentaPesos(new Cuenta(112,"$"));
-cliente2.setCuentaDolares(new Cuenta(223,"USD"));
-
-//cuenta en pesos del cleitne 2
-let cuenta_pesos_cliente2 = cliente2.getCuentaPesos()
-
-let mensaje = "Antes de la transferencia";
-mensaje += "\n"+cliente1.getDatos();
-mensaje += "\n"+cliente1.getCuentaPesos().getDescrip()
-mensaje += "\n"+cliente2.getDatos();
-mensaje += "\n"+cliente2.getCuentaPesos()
-mensaje += "\n"+cliente2.getDescrip();
-console.log(mensaje);
-
-//hago la transferencia//
-
-transferir(1250,cuenta_pesos,cuenta_pesos_cliente2);
-
-mensaje = "Despues de la transferencia";
-mensaje += "\n"+cliente1.getDatos();
-mensaje += "\n"+cliente1.getCuentaPesos().getDescrip();
-mensaje += "\n"+cliente2.getDatos();
-mensaje += "\n"+cliente2.getCuentaPesos()
-mensaje += "\n"+cliente2.getDescrip();
-console.log(mensaje);
-
-
-
-function transferir (monto,cuenta_origen,cuenta_destino){
-
-    if(cuenta_origen && cuenta_destino){
-        if(cuenta_origen.getTipo()===cuenta_destino.getTipo()){
-            if(cuenta_origen.tieneSaldo(monto)){
-
-                cuenta_origen.debitar(monto);
-                cuenta_destino.acreditar(monto);
-                alert("transferencia exitosa")
-
-            }else{
-                alert("no se puede transferir, saldo insuficiente")
+    let new_user_confirm = confirm ("Desea Generar otro usuario")
+            if (new_user_confirm){
+                solicitarCliente()
+            
             }
 
-        }else{
-            alert("las cuentas no son del mismo tipo")
-        }
-
-    }else{
-        alert("No existe alguna de las cuentas")
-    }
-
 }
-
-*/
