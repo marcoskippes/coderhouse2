@@ -1,24 +1,27 @@
 // INICIO
+
+let btn_registrar = document.getElementById("btn_registrar");
+
+btn_registrar.addEventListener("click",()=>{
+
+    solicitarCliente()
+
+    })
+
+    /* ejemplo de ejecutar automaticamente
 document.addEventListener('DOMContentLoaded', function() {
     solicitarCliente();
 });
+*/
 
 let arreglo_clientes = new Array();
 
 function solicitarCliente(){
     
-    let input_nombre = prompt("Ingrese su nombre");
-    console.log(input_nombre)
-   
-    let input_apellido = prompt("Ingrese su apellido");
-    console.log(input_apellido)
-  
-    let input_email = prompt("Ingrese su email");
-    console.log(input_email)
-  
-    let input_password = prompt("Ingrese una contraseña");
-    console.log(input_password)
-
+    let input_nombre = document.getElementById("name_input").value;
+    let input_apellido = document.getElementById("surname_input").value;
+    let input_email = document.getElementById("email_input").value;
+    let input_password = document.getElementById("pass_input").value;
 
     if(input_nombre.trim =""){
         alert("no ingreso su nombre")
