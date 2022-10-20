@@ -6,6 +6,7 @@
 @import "base/variables";
 @import "base/mixin";
 @import "base/maps";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body{  
     header{
@@ -25,19 +26,23 @@ body{
             width: 70%;
             align-content: flex-end;
             padding:2rem;
+            font-family: $fuente;
             ul{
                 list-style: none; 
                 text-align: center;
+                text-transform: uppercase;
                 li{
                     background-color: $color-boton;
                     display: inline-block;
                     padding: 0.1rem;
-                    margin: 0.1rem;
+                    margin: 0.3rem;
                         
                 };
                 li:hover{
                     transform: scale(1.05);
+                    /*
                     border-radius: 0.5rem;
+                    */
                     background-color: $color-hover;
                              
                 }
@@ -51,17 +56,11 @@ body{
 }
 }
 
- 
 
-
-
-
-//CONTACTO//
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+//PROPIEDADES DEL FORMULARIO//
 
 html {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: $fuente;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -73,7 +72,7 @@ button {
         select {
         text-transform: none;
             textarea{
-                color: #5A5A5A;
+                color: #e21717;
                 font: inherit;
                 margin: 0;
                 overflow: auto;
@@ -85,12 +84,13 @@ button {
 
 
 #container {
-  border: solid 3px #474544;
+  font-family: $fuente;
+  border: solid 3px $border;
   max-width: 768px;
-  margin: 60px auto;
-  position: relative;
+  margin: 2rem auto;
     h1 {
-        color: #474544;
+        padding: 1rem;
+        color: $color-text;
         font-size: 32px;
         font-weight: 700;
         letter-spacing: 7px;
@@ -100,30 +100,9 @@ button {
             font-size: 26px;
         };
         };
-    .underline {
-        border-bottom: solid 2px #474544;
-        margin: -0.512em auto;
-        width: 120px;
-        @include media(xs) {
-          width: 60px;
-        };
-        };
-    .icon_wrapper {
-        margin: 50px auto 0;
-        width: 100%;
-        .icon {
-                display: block;
-                fill: #474544;
-                height: 50px;
-                margin: 0 auto;
-                width: 50px;
-                };
-                };
     form {
-        padding: 37.5px;
-        margin: 50px 0;
+        padding: 2rem;
         .message {
-            float: none;
             textarea {
                 line-height: 150%;
                 height: 150px;
@@ -132,21 +111,19 @@ button {
             };
             };
         .name {
-            float: left;
-            width: 45%;
-            };
-        .email {
-            float: right;
-            width: 45%;
-            };
-        .telephone {
             width: 100%;
             };
-            input[type='text'], [type='email'], select, textarea {
+        .email {
+            width: 100%;
+            };
+        .password {
+            width: 100%;
+            };
+        input[type='text'], [type='email'], select, textarea {
                 background: none;
                 border: none;
-                border-bottom: solid 2px #474544;
-                color: #474544;
+                border-bottom: solid 2px $border;
+                color: $color-text;
                 font-size: 1.000em;
                 font-weight: 400;
                 letter-spacing: 1px;
@@ -163,37 +140,38 @@ button {
                 -moz-transition: all 0.3s;
                 -ms-transition: all 0.3s;
                 -o-transition: all 0.3s;
-                transition: all 0.3s;        
+                transition: all 0.3s;  
+                   
                   };
             input[type='text']:focus, [type='email']:focus, textarea:focus {
                     outline: none;
                     padding: 0 0 0.875em 0;
                   };
-            .subject {
-                width: 100%;
+        .subject {
+            width: 100%;
                 select {
                     background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
                     outline: none;
                     -moz-appearance: none;
                     -webkit-appearance: none;
                   };  
-                select::-ms-expand {
+            select::-ms-expand {
                     display: none;
                   };
                   
 
                 };
-            .submit{
-                #form_button {
-                    background: none;
-                    border: solid 2px #474544;
-                    color: #474544;
-                    cursor: pointer;
-                    display: inline-block;
-                    font-family: 'Helvetica', Arial, sans-serif;
-                    font-size: 0.875em;
-                    font-weight: bold;
-                    outline: none;
+        .submit{
+            text-align: center;
+            #btn_contacto{
+                @extend #btn_registrar
+            };
+            #btn_registrar {
+                background: $color-boton;
+                color: $color-text-contraste;
+                border: none;
+                display: inline-block;
+                font-size: 0.875em;
                     padding: 20px 35px;
                     text-transform: uppercase;
                     -webkit-transition: all 0.3s;
@@ -202,8 +180,8 @@ button {
                     -o-transition: all 0.3s;
                     transition: all 0.3s;
                     &:hover{
-                        background: #474544;
-                        color: #F2F3EB;
+                        background: $color-hover;
+                        color: $color-text-contraste;
                     };
                     @include media(xs) {
                         padding: 15px 25px;
@@ -214,23 +192,30 @@ button {
                   }
                   
                 
-            }       
+            };
+        .alertas{
+            padding: 2rem;
+            font-family: $fuente;
+            color: $text-alert;
+            li{list-style: none;}
+        }       
         }
 }
 
+//PROPIEDADES CUANDO NO HAY NADA ESCRITO//
 ::-webkit-input-placeholder {
-  color: #ff5500;
+  color: $text-alert;
 }
 :-moz-placeholder { 
-  color: #ff5500;
+  color: $text-alert;
   opacity: 1;
 }
 ::-moz-placeholder {
-  color: #ff5500;
+  color: $text-alert;
   opacity: 1;
 }
 :-ms-input-placeholder {
-  color: #ff5500;
+  color: $text-alert;
 }
 
 

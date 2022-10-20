@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   padding: 0%;
   margin: 0%; }
@@ -10,7 +10,7 @@ body main div.productos .prd1, body main div.productos .prd2, body main div.prod
   border-style: outset;
   border-width: 0.006rem;
   border-radius: 10%;
-  border-color: rgba(0, 38, 255, 0.463); }
+  border-color: #000080; }
   body main div.productos .prd1:hover, body main div.productos .prd2:hover, body main div.productos .prd3:hover, body main div.productos .prd4:hover, body main div.productos .prd5:hover, body main div.productos .prd6:hover, body main div.productos .prd7:hover, body main div.productos .prd8:hover {
     background-color: rgba(181, 218, 231, 0.23); }
   body main div.productos .prd1 img, body main div.productos .prd2 img, body main div.productos .prd3 img, body main div.productos .prd4 img, body main div.productos .prd5 img, body main div.productos .prd6 img, body main div.productos .prd7 img, body main div.productos .prd8 img {
@@ -30,7 +30,7 @@ body main div.productos .prd1, body main div.productos .prd2, body main div.prod
     margin: 0%; }
   body main div.productos .prd1 div.boton, body main div.productos .prd2 div.boton, body main div.productos .prd3 div.boton, body main div.productos .prd4 div.boton, body main div.productos .prd5 div.boton, body main div.productos .prd6 div.boton, body main div.productos .prd7 div.boton, body main div.productos .prd8 div.boton {
     font-size: 1rem;
-    background-color: rgba(0, 38, 255, 0.463);
+    background-color: #000080;
     color: white;
     margin-left: 10%;
     margin-right: 10%;
@@ -55,22 +55,26 @@ body header .barraMenu {
   body header .barraMenu nav {
     width: 70%;
     align-content: flex-end;
-    padding: 2rem; }
+    padding: 2rem;
+    font-family: "Roboto", sans-serif; }
     body header .barraMenu nav ul {
       list-style: none;
-      text-align: center; }
+      text-align: center;
+      text-transform: uppercase; }
       body header .barraMenu nav ul li {
-        background-color: rgba(0, 38, 255, 0.463);
+        background-color: #000080;
         display: inline-block;
         padding: 0.1rem;
-        margin: 0.1rem; }
+        margin: 0.3rem; }
       body header .barraMenu nav ul li:hover {
         transform: scale(1.05);
-        border-radius: 0.5rem;
-        background-color: #25256f; }
+        /*
+                    border-radius: 0.5rem;
+                    */
+        background-color: #000080e9; }
 
 html {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
 
@@ -81,18 +85,19 @@ button {
     button input select {
       text-transform: none; }
       button input select textarea {
-        color: #5A5A5A;
+        color: #e21717;
         font: inherit;
         margin: 0;
         overflow: auto; }
 
 #container {
-  border: solid 3px #474544;
+  font-family: "Roboto", sans-serif;
+  border: solid 3px #000080;
   max-width: 768px;
-  margin: 60px auto;
-  position: relative; }
+  margin: 2rem auto; }
   #container h1 {
-    color: #474544;
+    padding: 1rem;
+    color: #000080;
     font-size: 32px;
     font-weight: 700;
     letter-spacing: 7px;
@@ -101,45 +106,24 @@ button {
     @media (max-width: 480px) {
       #container h1 {
         font-size: 26px; } }
-  #container .underline {
-    border-bottom: solid 2px #474544;
-    margin: -0.512em auto;
-    width: 120px; }
-    @media (max-width: 480px) {
-      #container .underline {
-        width: 60px; } }
-  #container .icon_wrapper {
-    margin: 50px auto 0;
-    width: 100%; }
-    #container .icon_wrapper .icon {
-      display: block;
-      fill: #474544;
-      height: 50px;
-      margin: 0 auto;
-      width: 50px; }
   #container form {
-    padding: 37.5px;
-    margin: 50px 0; }
-    #container form .message {
-      float: none; }
-      #container form .message textarea {
-        line-height: 150%;
-        height: 150px;
-        resize: none;
-        width: 100%; }
+    padding: 2rem; }
+    #container form .message textarea {
+      line-height: 150%;
+      height: 150px;
+      resize: none;
+      width: 100%; }
     #container form .name {
-      float: left;
-      width: 45%; }
+      width: 100%; }
     #container form .email {
-      float: right;
-      width: 45%; }
-    #container form .telephone {
+      width: 100%; }
+    #container form .password {
       width: 100%; }
     #container form input[type='text'], #container form [type='email'], #container form select, #container form textarea {
       background: none;
       border: none;
-      border-bottom: solid 2px #474544;
-      color: #474544;
+      border-bottom: solid 2px #000080;
+      color: #000080;
       font-size: 1.000em;
       font-weight: 400;
       letter-spacing: 1px;
@@ -169,43 +153,47 @@ button {
         -webkit-appearance: none; }
       #container form .subject select::-ms-expand {
         display: none; }
-    #container form .submit #form_button {
-      background: none;
-      border: solid 2px #474544;
-      color: #474544;
-      cursor: pointer;
-      display: inline-block;
-      font-family: 'Helvetica', Arial, sans-serif;
-      font-size: 0.875em;
-      font-weight: bold;
-      outline: none;
-      padding: 20px 35px;
-      text-transform: uppercase;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      -ms-transition: all 0.3s;
-      -o-transition: all 0.3s;
-      transition: all 0.3s; }
-      #container form .submit #form_button:hover {
-        background: #474544;
-        color: #F2F3EB; }
-      @media (max-width: 480px) {
-        #container form .submit #form_button {
-          padding: 15px 25px; } }
+    #container form .submit {
+      text-align: center; }
+      #container form .submit #btn_registrar, #container form .submit #btn_contacto {
+        background: #000080;
+        color: white;
+        border: none;
+        display: inline-block;
+        font-size: 0.875em;
+        padding: 20px 35px;
+        text-transform: uppercase;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s; }
+        #container form .submit #btn_registrar:hover, #container form .submit #btn_contacto:hover {
+          background: #000080e9;
+          color: white; }
+        @media (max-width: 480px) {
+          #container form .submit #btn_registrar, #container form .submit #btn_contacto {
+            padding: 15px 25px; } }
+    #container form .alertas {
+      padding: 2rem;
+      font-family: "Roboto", sans-serif;
+      color: #ff000098; }
+      #container form .alertas li {
+        list-style: none; }
 
 ::-webkit-input-placeholder {
-  color: #ff5500; }
+  color: #ff000098; }
 
 :-moz-placeholder {
-  color: #ff5500;
+  color: #ff000098;
   opacity: 1; }
 
 ::-moz-placeholder {
-  color: #ff5500;
+  color: #ff000098;
   opacity: 1; }
 
 :-ms-input-placeholder {
-  color: #ff5500; }
+  color: #ff000098; }
 
 body main div.productos {
   display: grid;
