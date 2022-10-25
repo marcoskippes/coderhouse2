@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="../css/main.css">
     <!--Link CSS Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
-    <title>Lotes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>PRODUCTOS</title>
 </head>
 <body>
 
   <header>
 
-    <div class="barraMenu">
-      <div>Termotanques</div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+    <div class="barraMenu fixed-top">
+      <div class="g-col-3 d-flex align-items-center p-2">TU TERMO EN LA WEB</div>
+      <nav class="g-col-6 navbar navbar-expand-lg navbar-dark bg-blue">
           <div class="container-fluid">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,24 @@
             </div>
           </div>
         </nav>
+
+<!-- CARRITO -->
+        <div class="g-col-3 d-flex align-items-center justify-content-end p-2">
+          <a  class="cart position-relative d-inline-flex" 
+              aria-label="View your shopping cart"
+              data-bs-toggle="offcanvas" 
+              data-bs-target="#offcanvasRight" 
+              aria-controls="offcanvasRight">
+              <i id="iconoCarrito">
+                  <img src="../img/shopb.jpg" alt="">
+                  <span class="badge rounded-circle" id="badgeCarrito">0</span>
+              </i>
+          </a>
+        </div>
+<!--FIN CARRITO IMAGEN-->
   </div>
+
+</div>
   
     
   
@@ -54,85 +71,37 @@
   </header>
 
 <main>
+        <div class="productos" id="productos">
+        </div>            
     
-    <div class="productos">
-          <div class="prd1">
-            <img src="../img/ECO_MINI.png" />
-            <h1>Eléctrico 20</h1>
-            <h2>$15000</h2>
-            <div>
-              <div class="boton">Agregar</div>
-            </div>
+<!-- CARRITO OPEN -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">TU ORDEN</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+          <div id="idCarrito"> 
+              <div class="row">
+                  <div class="col"></div>
+                  <div class="col">PRODUCTO</div>
+                  <div class="col">PRECIO</div>
+                  <div class="col">CANTIDAD</div>
+                  <div class="col"></div>
+              </div>
           </div>
+      </div>
+  </div>  
+  <!--FIN CARRITO OPEN--> 
 
-          <div class="prd2">
-            <img src="../img/ECO_CHICO.png" />
-            <h1>Eléctrico 53</h1>
-            <h2>$18000</h2>
-            <div>
-              <div class="boton">Agregar</div>
-            </div>
-          </div>
-
-          <div class="prd3">
-            <img src="../img/LENERO.png" />
-            <h1>Leñero</h1>
-            <h2>$14000</h2>
-            <div>
-              <div class="boton">Agregar</div>
-            </div>
-          </div>
-
-          <div class="prd4">
-            <img src="../img/ECO_GRANDE.png" />
-            <h1>Gas AP150</h1>
-            <h2>$15000</h2>
-            <div>
-              <div class="boton">Agregar</div>
-            </div>
-          </div>
-
-          <div class="prd5">
-            <img src="../img/CALEFON.png" />
-            <h1>Calefón Gas</h1>
-            <h2>$15000</h2>
-            <div>
-              <div class="boton">Agregar</div>
-            </div>
-          </div>
-
-          <div class="prd6">
-            <img src="../img/P_E53.png" />
-            <h1>Pópuli Gas 45</h1>
-            <h2>$8000</h2>
-            <div>
-              <div class="boton">Agregar</div>
-            </div>
-          </div>
-
-          <div class="prd7">
-            <img src="../img/P_MED.png" />
-            <h1>Pópuli Gas 70</h1>
-            <h2>$10000</h2>
-            <div>
-              <div class="boton">Agregar</div>
-            </div>
-          </div>
-
-          <div class="prd8">
-            <img src="../img/P_GRA.png" />
-            <h1>Pópuli Gas 100</h1>
-            <h2>$18000</h2>
-            <div>
-              <div class="boton">Agregar</div>
-            </div>
-          </div>
-    </div>
 </main>
 </body>
 <!--Link JavaScript Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="../Producto.js" ></script>
+<script src="../GestionarProductos.js" ></script>
+<script src="../main.js" ></script>
+</script>
 
 </html>

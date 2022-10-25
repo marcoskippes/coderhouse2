@@ -5,7 +5,6 @@
     width: 20vw;
     border-style:outset;
     border-width: 0.006rem;
-    border-radius: 10%;
     border-color: $color_boton;
         &:hover{
             background-color:rgba(181, 218, 231, 0.23)
@@ -20,29 +19,36 @@
         }
     };
     h1{
+        font-family: $fuente;
         font-size: 1rem;
         padding: 4%;
         margin:0%
     };
     h2{
+        font-family: $fuente;
         font-size: 1rem;
         font-weight: lighter;
         padding: 4%;
         margin:0%
     };   
-    div.boton{
+    .boton{
+            a{
+                font-family: $fuente;
+                text-decoration: none;
+                color: white;
+            };
             font-size: 1rem;
             background-color: $color-boton;
-            color: white;
             margin-left: 10%;
             margin-right: 10%;
             margin-bottom: 10%;
-            border-radius: 20px;
             padding: 0.5%;
             &:hover{
                 transform: scale(1.05);
                 background-color: rgb(37, 37, 111);
+            
             }
+        
     } 
 
 }

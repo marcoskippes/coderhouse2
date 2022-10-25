@@ -6,27 +6,43 @@
 @import "base/variables";
 @import "base/mixin";
 @import "base/maps";
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Titan+One&display=swap');
 
 body{  
     header{
     .barraMenu{
         display: flex;
-        background-color:white;
-        font-size: 1rem;
+        background-color:rgba(255, 255, 255, 0.868);
+        font-size: 1.5rem;
         justify-content: center;
         justify-items: center;
+        font-family: $fuente2;
         div{
             width: 30%;
             text-align: center;
             justify-items: center;
             justify-content: center;
+            i{
+                img{
+                    height: 3rem;
+                    padding-right: 1rem;
+                };
+                span{
+                    font-family: $fuente;
+                    position: fixed;
+                    top: 0.5rem;
+                    right: 1rem;
+                 }
+    
+                }
+            }
         };
         nav{
             width: 70%;
             align-content: flex-end;
             padding:2rem;
             font-family: $fuente;
+            font-size: 1rem;
             ul{
                 list-style: none; 
                 text-align: center;
@@ -54,7 +70,7 @@ body{
     } 
 
 }
-}
+
 
 
 //PROPIEDADES DEL FORMULARIO//
@@ -222,8 +238,6 @@ button {
 //ESTILOS DEL CARD//
 body{
     main{
-        
-        
         div.productos{
             display: grid;
             grid-template-rows: 200px 200px;
@@ -237,30 +251,25 @@ body{
             @extend %cards;
             
             };
-            .prd2{
-                @extend %cards;
-            };
-            .prd3{
-                @extend %cards;
-            };
-            .prd4{
-                @extend %cards;
-            };
-            .prd5{
-                @extend %cards;
-            };
-            .prd6{
-                @extend %cards;
-            };
-            .prd7{
-                @extend %cards;
-            };
-            .prd8{
-                @extend %cards;
-            };
         };
         
 
 };
 
+}
+
+
+
+/* PROPIEDADES PUNTUALES CARRITO */
+
+#badgeCarrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.6rem;
+    background-color: $color-hover !important;
+}
+.offcanvas {
+    margin-top: 4rem;
 }
