@@ -252,6 +252,30 @@ body{
             
             };
         };
+        div{
+            div{
+                .boton{
+                    a{
+                        font-family: $fuente;
+                        text-decoration: none;
+                        color: white;
+                    };
+                    font-size: 1rem;
+                    background-color: $color-boton;
+                    text-align: center;
+                    margin-left: 10%;
+                    margin-right: 10%;
+                    margin-bottom: 10%;
+                    padding: 0.5%;
+                    &:hover{
+                        transform: scale(1.05);
+                        background-color: rgb(37, 37, 111);
+                    
+                    }
+
+                }
+            }
+        }
         
 
 };
@@ -273,3 +297,4 @@ body{
 .offcanvas {
     margin-top: 4rem;
 }
+

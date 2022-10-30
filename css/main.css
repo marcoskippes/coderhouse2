@@ -217,6 +217,22 @@ body main div.productos {
   body main div.productos .prd1 {
     grid-area: prd1; }
 
+body main div div .boton {
+  font-size: 1rem;
+  background-color: #000080;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
+  padding: 0.5%; }
+  body main div div .boton a {
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: white; }
+  body main div div .boton:hover {
+    transform: scale(1.05);
+    background-color: #25256f; }
+
 /* PROPIEDADES PUNTUALES CARRITO */
 #badgeCarrito {
   display: flex;

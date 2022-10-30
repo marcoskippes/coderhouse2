@@ -68,9 +68,6 @@ getDatos(){
 }
 
 
-
-
-
 //Esto estará en una base de datos en el futuro
 const db_user = "generico";
 const db_pass = "pass1234";

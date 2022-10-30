@@ -1,10 +1,10 @@
 class Cliente {
-    constructor(nombre,apellido,password,email){;
+    constructor(nombre,apellido,email,password){;
 
     this.nombre = nombre;
     this.apellido = apellido;
-    this.password = password;
     this.email = email;
+    this.password = password;
     this.monto_compra = null;
     }
     

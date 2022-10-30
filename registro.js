@@ -60,11 +60,14 @@ function crear_cliente(){
     let email = document.getElementById("email_input").value;
     let password = document.getElementById("pass_input").value;
 
-    let cliente = new Cliente (nombre,apellido,email,password);
-
-    arreglo_clientes.push(cliente)
-
+    let user = new Cliente (nombre,apellido,email,password);
+    console.log(user)
+    arreglo_clientes.push(user)    
     console.log(arreglo_clientes)
+    
+    clientes.push(arreglo_clientes)
+    localStorage.setItem('clientes', JSON.stringify( clientes ));        
+    
 
     resetear_form()
 
