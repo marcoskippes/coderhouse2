@@ -3,6 +3,7 @@
 let carrito       = [];
 let productos     = [];
 let gestor;
+let comprar;
 const clave_carrito = 'carrito';
 const clave_clientes = 'clientes';
 let finalizar   = false
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // CARGAR LOS CLIENTES EN EL LOCAL STORAGE, SI NO HAY NADA SE ASIGNA O
     clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+    comprar = new GestionarCompra();
     
 })
 
