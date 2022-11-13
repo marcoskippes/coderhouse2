@@ -71,7 +71,7 @@ function crear_cliente(){
 
     resetear_form()
 
-    alert("Bienvenido "+ nombre + " "+ apellido)
+    msjBienvenida(nombre,apellido)
 
 }
 
@@ -90,4 +90,12 @@ function resetear_form(){
     document.getElementById("surname_input").value = "";
     document.getElementById("email_input").value = "";
     document.getElementById("pass_input").value = "";
+}
+
+function msjBienvenida(nombre,apellido){
+    Swal.fire({
+        title: "Bienvenido "+ nombre,
+        showConfirmButton: false,
+        timer: 3000
+      })
 }

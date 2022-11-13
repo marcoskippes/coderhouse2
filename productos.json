@@ -4,55 +4,63 @@
     "id": 1,
     "title": "Eléctrico 20",
     "tipo": "Electrico",
-    "marca": "Ecotermo"
+    "marca": "Ecotermo",
+    "img": "CALEFON.png"
     },
     {
     "precio":18000,
     "id": 2,
     "title": "Eléctrico 53",
     "tipo": "Electrico",
-    "marca": "Ecotermo"
+    "marca": "Ecotermo",
+    "img": "CALEFON.png"
     },
     {
     "precio":14000,
     "id": 3,
     "title": "Leñero",
     "tipo": "Leña",
-    "marca": "Ecotermo"
+    "marca": "Ecotermo",
+    "img": "CALEFON.png"
     },
     {
     "precio":15000,
     "id": 4,
     "title": "Gas AP150",
     "tipo": "Gas",
-    "marca": "Ecotermo"
+    "marca": "Ecotermo",
+    "img": "CALEFON.png"
     },
     {
     "precio":15000,
     "id": 5,
     "title": "Calefón",
     "tipo": "Gas",
-    "marca": "Ecotermo"
+    "marca": "Ecotermo",
+    "img": "CALEFON.png"
     },
     {
     "precio":8000,
     "id": 6,
     "title": "Populi Gas 45",
     "tipo": "Gas",
-    "marca": "Populi"
+    "marca": "Populi",
+    "img": "CALEFON.png"
     },
     {
     "precio":10000,
     "id": 7,
     "title": "Populo Gas 70",
     "tipo": "Gas",
-    "marca": "Populi"
+    "marca": "Populi",
+    "img": "CALEFON.png"
     },
     {
     "precio":18000,
     "id": 8,
     "title": "Populi Gas 100",
     "tipo": "Gas",
-    "marca": "Populi"
+    "marca": "Populi",
+    "img": "CALEFON.png"
     }
 ]

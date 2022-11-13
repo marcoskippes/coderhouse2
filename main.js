@@ -49,8 +49,8 @@ function reducirCarrito(id) {
 
 function vaciarCarrito(){
 
-    let vac = confirm("Está seguro de vaciar el carrito?")
-    
+    let vac = confirmMarcos("Está seguro de vaciar el carrito?")
+    console.log(vac)
     if(vac){
     carrito.length=0  
     gestor.iniciar()
@@ -105,17 +105,40 @@ const confirmAlert = (mensaje)=>{
             '',
             'success'
           );
-          conf = true
+          
         }
         
        
       })
 
-      return Swal.fire
+      
       
     
       
-    }
+    };
 
+
+const confirmMarcos = (mensaje) =>{
+    Swal.fire({
+        title: mensaje,
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't save`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Saved!', '', 'success');
+          return result
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', '', 'info')
+          return result
+        }
+        console.log(result)
+      })
+      
+      
+      
+    }
 
 

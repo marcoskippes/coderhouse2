@@ -27,3 +27,14 @@ getDatos(){
 
 }
 
+
+class ContactoMensajes {
+    constructor(nombre,email,telephone,subject,message){
+        
+    this.nombre = nombre;
+    this.email = email;
+    this.telephone = telephone;
+    this.subject = subject;
+    this.message = message;
+    }
+}

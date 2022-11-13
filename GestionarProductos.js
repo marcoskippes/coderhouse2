@@ -1,4 +1,9 @@
 
+fetch('../productos.json')
+.then(res => res.json())
+.then(res => console.log(res))
+
+console.log(proda);
 
 class GestionarProductos{
     iniciar(){
@@ -70,12 +75,13 @@ class GestionarProductos{
             "img": "CALEFON.png",
             }
         ]
+        console.log(productos);
 
         this.cargarProductos();
         this.mostrarCarrito();
         this.actualizarContador();
     }
-
+    
 
 // LO PRIMERO QUE HACEMOS ES CARGAR PRODUCTOS EN LA PAGINA (SIN FILTROS)
 
