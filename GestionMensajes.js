@@ -9,7 +9,6 @@ btn_registrar.addEventListener("click",()=>{
 
 // ALMACENAMIENTO INICIO
 
-let productos     = [];
 const clave_contacto = 'contacto';
 
 // EVENTO QUE SE CARGA CUANDO SE HABRE LA PAGINA
@@ -91,7 +90,9 @@ function crear_li (mensaje){
 function resetear_form(){
     document.getElementById("name_input").value = "";
     document.getElementById("email_input").value = "";
-
+    document.getElementById("telephone_input").value = "";
+    document.getElementById("subject_input").value = "";
+    document.getElementById("message_input").value = "";
 }
 
 function msjBienvenida(nombre){

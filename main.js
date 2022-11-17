@@ -1,4 +1,5 @@
 
+
 // VARIABLES GLOBALES PARA EL CARRITO
 let carrito       = [];
 let productos     = [];
@@ -6,7 +7,15 @@ let gestor;
 let comprar;
 const clave_carrito = 'carrito';
 const clave_clientes = 'clientes';
-let finalizar   = false
+let finalizar   = false;
+
+const color_boton = "#000080"
+
+// EVENTO CLICK FINALIZAR - LLAMA A FIANLIZAR COMPRA //
+
+let btn_finalizar = document.getElementById("finalizar");
+btn_finalizar.addEventListener("click",()=>{ finalizarCompra()
+    })
 
 // EVENTO QUE SE CARGA CUANDO SE HABRE LA PAGINA
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,6 +40,22 @@ function addCarrito(id) {
                                     prod.querySelector('h2').textContent, //precio//
                                 );
     gestor.addCart( producto );
+
+
+    fetch('../productos.json')
+    .then(respuesta => respuesta.json())
+    .then(resultado => {
+          productos = resultado.productos;
+        
+
+    })
+
+
+
+
+
+
+
 }
 
 
@@ -48,16 +73,26 @@ function reducirCarrito(id) {
 // FUNCION PARA VACIAR EL CARRITO
 
 function vaciarCarrito(){
-
-    let vac = confirmMarcos("Está seguro de vaciar el carrito?")
-    console.log(vac)
-    if(vac){
-    carrito.length=0  
-    gestor.iniciar()
-    localStorage.setItem('carrito', JSON.stringify( carrito ));    
-    alert("Se eliminaron todos los productos")
+  Swal.fire({
+    title: "Está seguro de vaciar el carrito?",
+    confirmButtonColor: color_boton,
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: 'SI',
+    denyButtonText: `NO`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      carrito.length=0  
+      gestor.iniciar()
+      localStorage.setItem('carrito', JSON.stringify( carrito ));
+      Swal.fire('Saved!', '', 'success');
+      return true
+    } else if (result.isDenied) {
+      Swal.fire('Not saved', '', 'info')
+      return false
     }
-}
+    
+  })}
 
 function cerrarCompra(){
 
@@ -68,17 +103,41 @@ function cerrarCompra(){
 }
 
 function finalizarCompra(){
-
-    nombre = prompt("Ingrese su usuario");
-    password = prompt("Ingrese su contraseña");
-
-    let cliente = new Cliente ( nombre,
+  
+  const logName = () => {
+    Swal.fire({
+      title: 'Inicio Cuenta',
+      html: 
+      '<input id="login" class="swal2-input" placeholder="nombre">' +
+      '<input id="password" class="swal2-input" placeholder="Password">',
+      confirmButtonText: 'Iniciar',
+      focusConfirm: true,
+      preConfirm: () => {
+        const nombre = Swal.getPopup().querySelector('#login').value
+        const password = Swal.getPopup().querySelector('#password').value
+        if (!nombre || !password) {
+          Swal.showValidationMessage(`Please enter login and password`)
+        }
+        let cliente = new Cliente (nombre,
                                 null,
                                 null,
-                                password)
-    ;
-    console.log(cliente)
-    comprar.validarDatos(cliente)
+                                password);
+        console.log(cliente)
+        comprar.validarDatos(cliente)
+        /* return { nombre: nombre, password: password }*/
+      }
+    })
+    /*
+    .then((result) => {
+      Swal.fire(`
+        nombre: ${result.value.nombre}
+        Password: ${result.value.password}
+      `.trim())
+    })*/
+}
+    setTimeout(logName,0)
+
+    
     
 }
 
@@ -121,24 +180,44 @@ const confirmAlert = (mensaje)=>{
 const confirmMarcos = (mensaje) =>{
     Swal.fire({
         title: mensaje,
-        showDenyButton: true,
+        showDenyButton: false,
         showCancelButton: true,
-        confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
+        confirmButtonText: 'SI',
+        denyButtonText: `NO`,
       }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           Swal.fire('Saved!', '', 'success');
-          return result
+          return true
         } else if (result.isDenied) {
-          Swal.fire('Changes are not saved', '', 'info')
-          return result
+          Swal.fire('Not saved', '', 'info')
+          return false
         }
-        console.log(result)
+        
       })
-      
-      
-      
+ 
     }
 
+// Eventos de tecla para buscador
+document.querySelector('#buscar').addEventListener('keyup', () => {
 
+  let q = document.querySelector('#buscar').value;
+
+  //Empezamos a buscar solo cuadno hay se hayan tipeado mas 2 letras o mas
+  if( q.length >= 2 ) { 
+      gestor.buscar( q );        
+  } else if ( q.length === 0 ) {
+      //Muestro todo sino hay nada el buscador   
+      gestor.iniciar();
+  } 
+
+})
+
+
+// ELIMINAR FILTROS PARA PODER OPERAR EL CARRITO
+document.querySelector('#iconoCarrito').addEventListener('click', () => {
+  let q = 0;
+  gestor.iniciar();
+})
+
+
+  

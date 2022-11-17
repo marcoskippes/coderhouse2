@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 */
 
-let arreglo_clientes = new Array();
 
 function solicitarCliente(){
     
@@ -61,14 +60,10 @@ function crear_cliente(){
     let password = document.getElementById("pass_input").value;
 
     let user = new Cliente (nombre,apellido,email,password);
-    console.log(user)
-    arreglo_clientes.push(user)    
-    console.log(arreglo_clientes)
-    
-    clientes.push(arreglo_clientes)
+ 
+    clientes.push(user)
     localStorage.setItem('clientes', JSON.stringify( clientes ));        
     
-
     resetear_form()
 
     msjBienvenida(nombre,apellido)

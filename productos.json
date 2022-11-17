@@ -1,11 +1,13 @@
-[
+{
+    "productos":[
     {
     "precio":15000,
     "id": 1,
     "title": "Eléctrico 20",
     "tipo": "Electrico",
     "marca": "Ecotermo",
-    "img": "CALEFON.png"
+    "img": "ELE20.png",
+    "destacado":1
     },
     {
     "precio":18000,
@@ -13,54 +15,80 @@
     "title": "Eléctrico 53",
     "tipo": "Electrico",
     "marca": "Ecotermo",
-    "img": "CALEFON.png"
+    "img": "ELE53.png",
+    "destacado":1
     },
     {
     "precio":14000,
     "id": 3,
-    "title": "Leñero",
+    "title": "Eléctrico 70",
     "tipo": "Leña",
     "marca": "Ecotermo",
-    "img": "CALEFON.png"
+    "img": "ELE70.png",
+    "destacado":1
     },
     {
     "precio":15000,
     "id": 4,
-    "title": "Gas AP150",
+    "title": "Gas AP 150",
     "tipo": "Gas",
     "marca": "Ecotermo",
-    "img": "CALEFON.png"
+    "img": "AP150.png",
+    "destacado":1
     },
     {
     "precio":15000,
     "id": 5,
-    "title": "Calefón",
+    "title": "Gas AP 60",
     "tipo": "Gas",
     "marca": "Ecotermo",
-    "img": "CALEFON.png"
+    "img": "AP60.png",
+    "destacado":1
     },
+    {
+        "precio":8000,
+        "id": 6,
+        "title": "Gas Populi 53",
+        "tipo": "Gas",
+        "marca": "Populi",
+        "img": "GASPOP70.png",
+        "destacado":1
+        },
     {
     "precio":8000,
     "id": 6,
-    "title": "Populi Gas 45",
+    "title": "Gas Populi 70",
     "tipo": "Gas",
     "marca": "Populi",
-    "img": "CALEFON.png"
+    "img": "GASPOP70.png",
+    "destacado":1
     },
     {
     "precio":10000,
     "id": 7,
-    "title": "Populo Gas 70",
+    "title": "Populi Gas 100",
     "tipo": "Gas",
     "marca": "Populi",
-    "img": "CALEFON.png"
+    "img": "GASPOP100.png",
+    "destacado":1
     },
     {
     "precio":18000,
     "id": 8,
-    "title": "Populi Gas 100",
+    "title": "Calefón",
     "tipo": "Gas",
-    "marca": "Populi",
-    "img": "CALEFON.png"
+    "marca": "Ecotermo",
+    "img": "CALEFON.png",
+    "destacado":1
+    },
+    {
+    "precio":18000,
+    "id": 8,
+    "title": "Leñero",
+    "tipo": "Leña",
+    "marca": "Ecotermo",
+    "img": "LENERO.png",
+    "destacado":1
     }
 ]
+}

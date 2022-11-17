@@ -47,7 +47,7 @@ body main div.productos .prd1 {
 body header .barraMenu {
   display: flex;
   background-color: rgba(255, 255, 255, 0.868);
-  font-size: 1.5rem;
+  font-size: 1rem;
   justify-content: center;
   justify-items: center;
   font-family: "Titan One", cursive; }
@@ -56,6 +56,10 @@ body header .barraMenu {
     text-align: center;
     justify-items: center;
     justify-content: center; }
+    body header .barraMenu div input {
+      font-size: 1rem;
+      font-family: "Roboto", sans-serif;
+      text-decoration: black; }
     body header .barraMenu div i img {
       height: 3rem;
       padding-right: 1rem; }
@@ -209,29 +213,45 @@ button {
 :-ms-input-placeholder {
   color: #ff000098; }
 
-body main div.productos {
-  display: grid;
-  grid-template-rows: 200px 200px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template: 'prd1 prd2 prd3' 'prd4 prd5 prd6'; }
-  body main div.productos .prd1 {
-    grid-area: prd1; }
+.mainindex {
+  background-image: url(../img/banera.png); }
 
-body main div div .boton {
-  font-size: 1rem;
-  background-color: #000080;
-  text-align: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 10%;
-  padding: 0.5%; }
-  body main div div .boton a {
-    font-family: "Roboto", sans-serif;
-    text-decoration: none;
-    color: white; }
-  body main div div .boton:hover {
-    transform: scale(1.05);
-    background-color: #25256f; }
+body main {
+  margin-top: 5rem; }
+  body main div div h1 {
+    font-size: 1rem; }
+  body main div div h2 {
+    font-size: 1rem; }
+  body main .msjBievenida {
+    display: grid;
+    text-align: center;
+    height: 10vh;
+    align-items: center;
+    font-family: "Titan One", cursive;
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 0.268); }
+  body main div.productos {
+    display: grid;
+    grid-template-rows: 200px 200px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template: 'prd1 prd2 prd3' 'prd4 prd5 prd6'; }
+    body main div.productos .prd1 {
+      grid-area: prd1; }
+  body main div div .boton {
+    font-size: 1rem;
+    background-color: #000080;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    padding: 0.5%; }
+    body main div div .boton a {
+      font-family: "Roboto", sans-serif;
+      text-decoration: none;
+      color: white; }
+    body main div div .boton:hover {
+      transform: scale(1.05);
+      background-color: #25256f; }
 
 /* PROPIEDADES PUNTUALES CARRITO */
 #badgeCarrito {
@@ -244,3 +264,8 @@ body main div div .boton {
 
 .offcanvas {
   margin-top: 4rem; }
+
+#finalizar {
+  background-color: transparent;
+  border: 0cm;
+  color: white; }

@@ -1,103 +1,39 @@
 
-fetch('../productos.json')
-.then(res => res.json())
-.then(res => console.log(res))
+const url = '../productos.json'
 
-console.log(proda);
+
+
+
 
 class GestionarProductos{
     iniciar(){
-        //ARREGLO PRODUCTOS
-        productos = [
-            {
-            "precio":15000,
-            "id": 1,
-            "title": "Eléctrico 20",
-            "tipo": "Electrico",
-            "marca": "Ecotermo",
-            "img": "CALEFON.png",
-            },
-            {
-            "precio":18000,
-            "id": 2,
-            "title": "Eléctrico 53",
-            "tipo": "Electrico",
-            "marca": "Ecotermo",
-            "img": "CALEFON.png",
-            },
-            {
-            "precio":14000,
-            "id": 3,
-            "title": "Leñero",
-            "tipo": "Leña",
-            "marca": "Ecotermo"
-            ,
-            "img": "CALEFON.png",
-            },
-            {
-            "precio":15000,
-            "id": 4,
-            "title": "Gas AP150",
-            "tipo": "Gas",
-            "marca": "Ecotermo",
-            "img": "CALEFON.png",
-            },
-            {
-            "precio":15000,
-            "id": 5,
-            "title": "Calefón",
-            "tipo": "Gas",
-            "marca": "Ecotermo",
-            "img": "CALEFON.png",
-            },
-            {
-            "precio":8000,
-            "id": 6,
-            "title": "Populi Gas 45",
-            "tipo": "Gas",
-            "marca": "Populi",
-            "img": "CALEFON.png",
-            },
-            {
-            "precio":10000,
-            "id": 7,
-            "title": "Populo Gas 70",
-            "tipo": "Gas",
-            "marca": "Populi",
-            "img": "CALEFON.png",
-            },
-            {
-            "precio":18000,
-            "id": 8,
-            "title": "Populi Gas 100",
-            "tipo": "Gas",
-            "marca": "Populi",
-            "img": "CALEFON.png",
-            }
-        ]
-        console.log(productos);
+            fetch(url)
+            .then(respuesta => respuesta.json())
+            .then(resultado => {
 
-        this.cargarProductos();
-        this.mostrarCarrito();
-        this.actualizarContador();
-    }
-    
+                productos = resultado.productos;
+
+                this.cargarProductos(productos);
+                this.mostrarCarrito();
+                this.actualizarContador();
+                
+                console.log(productos)
+            })
+}
 
 // LO PRIMERO QUE HACEMOS ES CARGAR PRODUCTOS EN LA PAGINA (SIN FILTROS)
 
     cargarProductos() { 
-
-        const divProductos    = document.querySelector('#productos');
+        const divProductos = document.querySelector('#productos');
         console.log(divProductos)
         if(divProductos != null){
         divProductos.innerHTML = '';
-        console.log(productos);
         if(productos.length === 0 ) {
+            /*
             this.mostrarHeader('No se han encontrado productos para su búsqueda');
-            //NO ES UTILIZADO EL MENSAJE//
+            //NO ES UTILIZADO EL MENSAJE//*/
             return false;
-
-        } 
+        }
         else {          
             productos.forEach( (producto) => {
                 let prod = document.createElement('div');
@@ -117,8 +53,28 @@ class GestionarProductos{
                 divProductos.appendChild( prod );
 
             } )    
-        }
-    }}
+        }   
+    }
+}
+
+// Funcion para buscar un producto
+buscar( q ) { 
+
+    fetch(url)
+            .then(respuesta => respuesta.json())
+            .then(resultado => {
+
+                productos = resultado.productos.filter( producto => producto.title.toLowerCase().includes( q.toLowerCase() ) || producto.tipo.toLowerCase().includes( q.toLowerCase() ));
+
+                this.cargarProductos();
+                this.mostrarCarrito();
+                this.actualizarContador();
+                
+                console.log(productos)
+            })
+ 
+}
+
 
 //AGREGAR AL CARRO FUNCION
 
@@ -131,7 +87,7 @@ addCart( infoProducto ) {
             if(producto.id === infoProducto.id)
             {
                 producto.cantidad++;
-                agregarNotificacion("Se agrego producto",2000)
+                agregarNotificacion("Se agrego producto",500)
                 return producto;
             }
             else
@@ -155,6 +111,8 @@ addCart( infoProducto ) {
 //REDUCIR CANTIDAD
 
 redCart(infoProducto) {  
+
+    
     const existe = carrito.some( producto => producto.id === infoProducto.id );
     // REDUZCO CONTADOR
     if(existe) 
@@ -178,9 +136,7 @@ redCart(infoProducto) {
     this.actualizarCarrito();
     }
 
-
     //CONTAR CANTIDAD DE PRODUCTOS
-
     contarProductos() { 
         let contadorProductos = 0;
         carrito.forEach(( producto ) => {
@@ -213,28 +169,30 @@ redCart(infoProducto) {
         carrito.forEach( ( producto ) => {
             const row = document.createElement('div');
             row.classList.add('row');
+            row.setAttribute('id', 'row_'+producto.id);
+
             total += parseInt(producto.precio*producto.cantidad);
 
             if(producto.cantidad > 0){
             row.innerHTML = `
-                        <div class="col-6 d-flex align-items-center p-2 border-bottom">
+                        <h1 class="col-6 d-flex align-items-center p-2">
                             ${producto.title}
-                        </div>
+                        </h1>
 
-                        <div class="col-1 d-flex align-items-center justify-content-end p-2 border-bottom">
+                        <div class="col-1 d-flex align-items-center justify-content-end p-2">
                             ${producto.cantidad}
                         </div>
 
-                        <div class="col-3 d-flex align-items-center justify-content-end p-2 border-bottom">
+                        <h2 class="col-3 d-flex align-items-center justify-content-end p-2">
                             $ ${producto.precio}
-                        </div>
+                        </h2>
 
-                        <div class="col-1 d-flex p-2 border-bottom">
+                        <div class="col-1 d-flex p-2">
                             <a href="javascript:reducirCarrito(${producto.id})">
                                 <i class="badge d-flex rounded-circle bg-danger">-</i>
                             </a>
                         </div>
-                        <div class="col-1 d-flex p-2 border-bottom">
+                        <div class="col-1 d-flex p-2">
                             <a href="javascript:addCarrito(${producto.id})">
                                 <i class="badge d-flex rounded-circle bg-primary">+</i>
                             </a>
@@ -261,13 +219,13 @@ redCart(infoProducto) {
     }
 
 
-
+/*
 //Muestra un detalle de lo mostrado en pantalla
 mostrarHeader(msg){ 
     const headerProductos = document.querySelector('#headerProductos');
     headerProductos.innerHTML = msg;
 }
-
+*/
  // GUARDAR INFORMACION EN LOCAL STORAGE
  guardarCarrito() { 
     
@@ -292,12 +250,17 @@ const mostrarAlert = (mensaje,duracion)=>{
 
 };
 
+
 const agregarNotificacion = (mensaje,duracion)=>{    
     Toastify({
         text: mensaje,     
-        duration: duracion 
+        duration: duracion,
+        style: {
+            background: "linear-gradient(to right, #000080, #2d2df8e9)",
+          } 
         }).showToast();
 };
+
 
 
 

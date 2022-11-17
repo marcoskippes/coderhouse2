@@ -45,6 +45,11 @@
           </div>
         </div>
       </nav>
+      <div class="g-col-1 d-flex align-items-center justify-content-end p-2">
+
+        <input disabled type="text" placeholder="" name="buscar" id="buscar">
+         
+      </div>
 
 <!-- CARRITO -->
       <div class="g-col-3 d-flex align-items-center justify-content-end p-2">
@@ -71,7 +76,7 @@
 </header>
 
 <body>
-
+<main>
 
     <div class="" id="container">
         <h1>CONTACTANOS</h1>
@@ -109,7 +114,7 @@
           <div class="alertas" id="alerta_contacto"></div>
         </form><!-- // End form -->
       </div><!-- // End #container -->
-<main>
+
 <!-- CARRITO OPEN -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
@@ -134,7 +139,7 @@
     <div class="row"> 
       <div class="col-6">
       <div class="boton">
-        <a href="javascript:finalizarCompra()" >FINALIZAR</a>
+        <button id="finalizar" data-bs-dismiss="offcanvas">FINALIZAR</button> 
       </div>
       </div>
       <div class="col-6"> 
@@ -151,15 +156,18 @@
 </body>
 <!--Link JavaScript Bootstrap -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
 <script src="../Producto.js" ></script>
 <script src="../GestionarProductos.js" ></script>
 <script src="../GestionarCompra.js" ></script>
 <script src="../GestionMensajes.js" ></script>
 <script src="../clientes.js" ></script>
-
 <script src="../main.js" ></script>
 
 </html>

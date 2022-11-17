@@ -2,22 +2,49 @@ class GestionarCompra{
 
 //VALIDAR EL INGRESO DEL CLIENTE
     validarDatos(infoCliente){
-        const existe = clientes.some(cliente => cliente.nombre === infoCliente.nombre && cliente.password === infoCliente.password)
-
+        console.log(clientes)
+        console.log(infoCliente)
+        console.log(infoCliente.nombre)
+        console.log(infoCliente.password)
+        let a = infoCliente.nombre
+        let b = infoCliente.password
+        const existe = clientes.some(clientes => clientes.nombre === a)
+        console.log(existe)
         if(existe){
-                
-                let close = confirm("Confirma la compra?")
+                Swal.fire({
+                    title: 'Está seguro de realizar la compra?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Confirmar!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Su compra fue realizada con éxito',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                        cerrarCompra()
 
-                if(close){
-                   alert("Compra Finalizada")
-                    cerrarCompra() 
-                }
+
+
+                    }
+                  })
                 
         }
         else{
-                alert("no existe el usuario o la clave es incorrecta")
-        
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "no existe el usuario o la clave es incorrecta",
+            
+              })
+
+            
             }
 
 }
 }
+
